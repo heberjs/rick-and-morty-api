@@ -1,36 +1,24 @@
-import { useState, useEffect, createContext, useContext } from "react"
 
-import logic from "../../logic"
-
-const CharacterContext = createContext(null)
-
-export  const useCharacters = ()=> useContext(CharacterContext)
+import { createContext, useContext, useState } from 'react'
+const EditContext = createContext(null)
 
 
 
-export const CharactersProvider = ({children}) => {
+export const useCharacters = () => useContext(EditContext)
 
+
+export const EditCharacterProvider = ({ children }) => {
+
+
+    const [editCharacter, setEditCharacter] = useState(null)
     const [characters, setCharacters] = useState([])
-    const [error, setError] = useState(null)
 
-    useEffect(() => {
-
-        const fetchCharacters = async () => {
-            try {
-                const data = await logic.retrieveCharacters()
-                setCharacters(data.results)
-            } catch (error) {
-                alert(error.message)
-            }
-        }
-
-        fetchCharacters()
-    }, [])
 
     return (
-        <CharacterContext.Provider value={{characters, setCharacters}}>
+        <EditContext.Provider value={{ editCharacter, setEditCharacter, characters, setCharacters }}>
             {children}
-        </CharacterContext.Provider>
-
+        </EditContext.Provider>
     )
+
 }
+

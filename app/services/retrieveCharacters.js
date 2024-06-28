@@ -1,7 +1,7 @@
 async function retrieveCharacters(page = 1) {
 
     try {
-        const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+        const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
 
         if (!response.ok) throw new Error(`Fetch error: ${response.status} - ${response.statusText}`)
 

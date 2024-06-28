@@ -1,15 +1,10 @@
 
-import Character from './Character'
+import Character from './CharacterCard'
 
-import {useCharacters} from '../Hooks/useCharacters'
+function CharactersList({ characters }) {
 
-
-function CharactersList() {
-
-    const { characters } = useCharacters()
-
-return <section className='flex flex-wrap justify-center'>
-    {characters.map(character=> <Character key={character.id} character ={character}/> )}
+    return <section className='flex flex-wrap justify-center'>
+        {characters.map(character => <Character key={character.id} character={character} />)}
 
     </section>
 }
