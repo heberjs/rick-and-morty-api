@@ -3,19 +3,22 @@ import errors from '../Errors/errors'
 const { SystemError, ClientError, ServerError } = errors
 
 
+
 const apiUrl = process.env.VITE_API_URL
 
 
-const retrieveCharacters = async (page = 1) => {
+async function retrieveCharacter(id) {
+
+    //Try/Catch Block for Network Errors in fetch
 
     let response
     try {
-        response = await fetch(`${apiUrl}/character?page=${page}`)
+        response = await fetch(`${apiUrl}/character/${id}`)
     } catch (error) {
         throw new SystemError(error.message)
-
     }
 
+    // Checks if the HTTP response is not successful
     if (!response.ok) {
         if (response.status < 500) {
             throw new ClientError('Client error ocurred while fetching')
@@ -24,16 +27,17 @@ const retrieveCharacters = async (page = 1) => {
         }
     }
 
+
+    // try/Catch Block for JSON Parsing
     try {
         const data = await response.json()
 
         return data
     } catch (error) {
-
-        throw new SystemError(error.message)
-
+        throw new SystemError('Error parsing JSON: ' + error.message)
     }
+
 
 }
 
-export default retrieveCharacters
+export default retrieveCharacter

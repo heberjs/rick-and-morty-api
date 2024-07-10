@@ -1,10 +1,10 @@
 
-import Character from './CharacterCard'
+import CharacterCard from './CharacterCard'
 
 function CharactersList({ characters }) {
 
     return <section className='flex flex-wrap justify-center'>
-        {characters.map(character => <Character key={character.id} character={character} />)}
+        {characters.map(character => <CharacterCard key={character.id} character={character} />)}
 
     </section>
 }

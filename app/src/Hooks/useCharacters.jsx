@@ -14,6 +14,7 @@ export const EditCharacterProvider = ({ children }) => {
     const [characters, setCharacters] = useState([])
 
 
+
     return (
         <EditContext.Provider value={{ editCharacter, setEditCharacter, characters, setCharacters }}>
             {children}

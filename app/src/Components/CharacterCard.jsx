@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom"
 import { useCharacters } from "../Hooks/useCharacters"
 
 
 
-function Character({ character }) {
+function CharacterCard({ character }) {
 
     const { setEditCharacter } = useCharacters()
 
@@ -18,7 +19,9 @@ function Character({ character }) {
         <h1 className='text-white font-semibold font-helvetica text-2xl  m-0'>{character.name}</h1>
         <p className='text-white font-semibold font-helvetica'>{character.location.name}</p>
         <p className='text-white font-semibold font-helvetica'>{character.status}</p>
-        <img src={character.image} alt="character image" />
+        <Link to={`/rickandmorty/${character.id}`}>
+            <img src={character.image} alt="character image" />
+        </Link>
         <button onClick={handleEditForm} className="text-white bg-slate-600 p-4">Edit</button>
 
     </article>
@@ -27,4 +30,4 @@ function Character({ character }) {
 }
 
 
-export default Character
+export default CharacterCard
