@@ -1,10 +1,15 @@
-
+import { useCharacters } from '../Hooks/useCharacters'
 import CharacterCard from './CharacterCard'
 
-function CharactersList({ characters }) {
+const CharactersList = ({ characters }) => {
+
+    const { error } = useCharacters()
 
     return <section className='flex flex-wrap justify-center'>
-        {characters.map(character => <CharacterCard key={character.id} character={character} />)}
+
+        {error ? (
+            <p className='text-white'>{error}</p>
+        ) : characters.map(character => <CharacterCard key={character.id} character={character} />)}
 
     </section>
 }

@@ -5,7 +5,7 @@ import { useEffect } from "react"
 
 const useCharactersData = () => {
 
-    const { setCharacters } = useCharacters()
+    const { setCharacters, setError } = useCharacters()
     const { currentPage, setTotalPages } = useNavPages()
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const useCharactersData = () => {
                 setTotalPages(data.info.pages)
 
             } catch (error) {
-                alert(error.message)
+                setError(error.message)
             }
         }
 

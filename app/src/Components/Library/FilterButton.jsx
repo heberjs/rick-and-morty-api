@@ -14,3 +14,5 @@ const FilterButton = ({ isActive, onClick, label }) => {
     )
 
 }
+
+export default FilterButton

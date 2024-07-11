@@ -20,9 +20,9 @@ function CharacterCard({ character }) {
         <p className='text-white font-semibold font-helvetica'>{character.location.name}</p>
         <p className='text-white font-semibold font-helvetica'>{character.status}</p>
         <Link to={`/rickandmorty/${character.id}`}>
-            <img src={character.image} alt="character image" />
+            <img className="rounded" src={character.image} alt="character image" />
         </Link>
-        <button onClick={handleEditForm} className="text-white bg-slate-600 p-4">Edit</button>
+        <button onClick={handleEditForm} className="text-white bg-slate-600 p-4 rounded">Edit</button>
 
     </article>
 

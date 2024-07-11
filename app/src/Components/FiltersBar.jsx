@@ -23,7 +23,7 @@ function FiltersBar() {
                 const data = await logic.filterCharactersBy({ name, status, gender, species })
                 setCharacters(data.results)
             } catch (error) {
-                alert(error.message)
+                setError(error.message)
                 console.error(error)
 
 
@@ -51,6 +51,7 @@ function FiltersBar() {
                         <FilterButton key={statusC}
                             isActive={statusC === status}
                             onClick={() => handleClick(statusC, setStatus)}
+                            label={statusC}
                         />
 
                     ))}
@@ -65,6 +66,8 @@ function FiltersBar() {
                             key={specie}
                             isActive={specie === species}
                             onClick={() => handleClick(specie, setSpecies)}
+                            label={specie}
+
                         />
 
                     )
@@ -83,6 +86,7 @@ function FiltersBar() {
                                 key={genderC}
                                 isActive={genderC === gender}
                                 onClick={() => handleClick(genderC, setGender)}
+                                label={genderC}
 
                             />
 
