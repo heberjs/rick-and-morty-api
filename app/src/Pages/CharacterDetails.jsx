@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import logic from '../../services'
+import Header from '../Components/Header'
 
 const CharacterDetails = () => {
 
@@ -29,15 +30,19 @@ const CharacterDetails = () => {
     }, [id])
 
     return (
-        <article className='flex flex-col items-center p-10'>
-            <h2>{characterDetails.name}</h2>
+
+        <article className='flex flex-col items-center p-10 bg-slate-900 min-h-screen text-white'>
+
+            <Header />
+
+            <h2 className='font-extrabold text-4xl text-white mb-8'>{characterDetails.name}</h2>
             <div>
-                <img src={characterDetails.image} alt={characterDetails.name} />
+                <img className='' src={characterDetails.image} alt={characterDetails.name} />
             </div>
 
-            <div className='flex gap-2 my-2 mr-4'>
+            <div className='flex gap-2 my-2 mr-4 text-white'>
                 <img src="/public/greenBall.png" alt="green ball" className='w-3 h-3 mt-1.5' />
-                <p className=''>{characterDetails.status}</p>
+                <p>{characterDetails.status}</p>
                 <span>-</span>
                 <p>{characterDetails.species}</p>
                 <span>/</span>

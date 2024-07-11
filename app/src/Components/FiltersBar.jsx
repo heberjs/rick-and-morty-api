@@ -34,40 +34,34 @@ function FiltersBar() {
 
     }, [status, gender, species])
 
-
-
-    const handleStatusClick = (newStatus) => setStatus(newStatus)
-
-    const handleGenderClick = (newGender) => setGender(newGender)
-
-    const handleSpeciesClick = (newSpecie) => setSpecies(newSpecie)
+    const handleClick = (value, setValue) => setValue(prev => (prev === value ? "" : value))
 
 
     return <>
 
-        <div className="text-white flex flex-col items-center gap-2">
-            <h2 className="font-extrabold text-2xl mb-1">Filters</h2>
-            <div className="flex flex-col items-center bg-slate-500 p-1">
+        <div className="text-white flex flex-col items-center gap-3">
+            <h2 className="font-extrabold text-2xl m-0">Filters</h2>
+            <div className="flex flex-col items-center rounded-lg bg-slate-500 p-2">
 
-                <h3 className="mb-4 font-semibold">Status</h3>
-                <div className="flex gap-2">
+                <h3 className="mb-4 font-semibold shadow p-1">Status</h3>
+                <div className="flex flex-wrap gap-2">
                     {["Alive", "Dead", "Unknown"].map((statusC) => (
 
                         <button key={statusC}
-                            className="bg-slate-800 px-2 py-1"
-                            onClick={() => handleStatusClick(statusC)}
+                            className={`px-2 py-1 rounded ${statusC === status ? 'bg-yellow-600 font-semibold' : 'bg-slate-800'}`}
+                            onClick={() => handleClick(statusC, setStatus)}
                         >{statusC}</button>
                     ))}
                 </div>
             </div>
-            <div className="flex flex-col items-center bg-slate-500 p-1">
-                <h3 className="mb-4 font-semibold">Species</h3>
-                <div className="flex gap-2">
+            <div className="flex flex-col items-center rounded-lg bg-slate-500 p-2">
+                <h3 className="mb-4 font-semibold shadow p-1">Species</h3>
+                <div className="flex flex-wrap gap-2">
                     {['Human', 'Alien', 'Humanoid', 'Poopybutthole', 'Mythological', 'Unknown', 'Animal', 'Disease', 'Robot', 'Cronenberg', 'Planet'].map((specie) => (
 
                         <button key={specie}
-                            className="bg-slate-800 px-2 py-1"
-                            onClick={() => handleSpeciesClick(specie)}
+                            className={`px-2 py-1 rounded ${specie === species ? 'bg-yellow-600 font-semibold' : 'bg-slate-800'}`}
+                            onClick={() => handleClick(specie, setSpecies)}
                         >{specie}</button>
 
                     )
@@ -76,14 +70,14 @@ function FiltersBar() {
                 </div>
 
             </div>
-            <div className="flex flex-col items-center bg-slate-500 p-1">
-                <h3 className="mb-4 font-semibold">Gender</h3>
-                <div className="flex gap-2">
-                    {['Male', 'Female', 'Genderless', 'Unknown'].map(gender => {
+            <div className="flex flex-col items-center rounded-lg bg-slate-500 p-2">
+                <h3 className="mb-4 font-semibold shadow p-1">Gender</h3>
+                <div className="flex gap-2 flex-wrap">
+                    {['Male', 'Female', 'Genderless', 'Unknown'].map(genderC => {
                         return (
-                            <button className="bg-slate-800 px-2 py-1"
-                                onClick={() => handleGenderClick(gender)}
-                            >{gender}</button>
+                            <button className={`px-2 py-1 rounded ${genderC === gender ? 'bg-yellow-600 font-semibold' : 'bg-slate-800'}`}
+                                onClick={() => handleClick(genderC, setGender)}
+                            >{genderC}</button>
 
                         )
                     })}
