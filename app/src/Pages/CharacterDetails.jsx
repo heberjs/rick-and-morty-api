@@ -31,7 +31,7 @@ const CharacterDetails = () => {
 
     return (
 
-        <article className='flex flex-col items-center p-10 bg-slate-900 min-h-screen text-white'>
+        <article className='flex flex-col items-center justify-center p-8 bg-slate-900 min-h-screen text-white'>
 
             <Header />
 

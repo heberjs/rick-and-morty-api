@@ -1,6 +1,7 @@
 import logic from '../../services'
 import { useEffect, useState } from 'react'
 import { useCharacters } from '../Hooks/useCharacters'
+import FilterButton from './Library/FilterButton'
 
 
 
@@ -39,6 +40,7 @@ function FiltersBar() {
 
     return <>
 
+
         <div className="text-white flex flex-col items-center gap-3">
             <h2 className="font-extrabold text-2xl m-0">Filters</h2>
             <div className="flex flex-col items-center rounded-lg bg-slate-500 p-2">
@@ -46,11 +48,11 @@ function FiltersBar() {
                 <h3 className="mb-4 font-semibold shadow p-1">Status</h3>
                 <div className="flex flex-wrap gap-2">
                     {["Alive", "Dead", "Unknown"].map((statusC) => (
-
-                        <button key={statusC}
-                            className={`px-2 py-1 rounded ${statusC === status ? 'bg-yellow-600 font-semibold' : 'bg-slate-800'}`}
+                        <FilterButton key={statusC}
+                            isActive={statusC === status}
                             onClick={() => handleClick(statusC, setStatus)}
-                        >{statusC}</button>
+                        />
+
                     ))}
                 </div>
             </div>
@@ -59,10 +61,11 @@ function FiltersBar() {
                 <div className="flex flex-wrap gap-2">
                     {['Human', 'Alien', 'Humanoid', 'Poopybutthole', 'Mythological', 'Unknown', 'Animal', 'Disease', 'Robot', 'Cronenberg', 'Planet'].map((specie) => (
 
-                        <button key={specie}
-                            className={`px-2 py-1 rounded ${specie === species ? 'bg-yellow-600 font-semibold' : 'bg-slate-800'}`}
+                        <FilterButton
+                            key={specie}
+                            isActive={specie === species}
                             onClick={() => handleClick(specie, setSpecies)}
-                        >{specie}</button>
+                        />
 
                     )
                     )}
@@ -75,9 +78,13 @@ function FiltersBar() {
                 <div className="flex gap-2 flex-wrap">
                     {['Male', 'Female', 'Genderless', 'Unknown'].map(genderC => {
                         return (
-                            <button className={`px-2 py-1 rounded ${genderC === gender ? 'bg-yellow-600 font-semibold' : 'bg-slate-800'}`}
+
+                            <FilterButton
+                                key={genderC}
+                                isActive={genderC === gender}
                                 onClick={() => handleClick(genderC, setGender)}
-                            >{genderC}</button>
+
+                            />
 
                         )
                     })}
