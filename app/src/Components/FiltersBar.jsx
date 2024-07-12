@@ -24,8 +24,6 @@ function FiltersBar() {
                 setCharacters(data.results)
             } catch (error) {
                 setError(error.message)
-                console.error(error)
-
 
             }
 

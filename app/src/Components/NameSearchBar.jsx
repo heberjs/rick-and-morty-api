@@ -45,14 +45,14 @@ const NameSearchBar = () => {
         <div className="flex justify-center">
             <form className="flex gap-2 rounded">
                 <input
-                    className="rounded p-2 border border-black"
+                    className="rounded p-2 border border-black font-semibold w-[400px]"
                     id="search"
                     type="text"
                     placeholder="Search by name"
                     onChange={handleNameSearch}
 
                 />
-                <button type="submit" className="text-white px-2 py-1 rounded bg-slate-500">
+                <button type="submit" className="text-white px-2 py-1 rounded bg-slate-500 font-semibold">
                     <p className="text-lg">Search</p>
 
                 </button>

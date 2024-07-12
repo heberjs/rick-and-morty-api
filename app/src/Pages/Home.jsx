@@ -18,18 +18,24 @@ function Home() {
 
     return (
 
-        <section className='bg-slate-900 flex justify-center flex-col p-4'>
+        <section className='bg-slate-900 flex justify-center flex-col p-2'>
 
             <Header />
 
             <NameSearchBar />
 
 
-            <div className='flex p-2'>
+            <div className='grid grid-cols-10 gap-2 p-2'>
 
-                <FiltersBar />
+                <div className='col-span-1'>
+                    <FiltersBar />
 
-                <CharactersList characters={characters} />
+                </div>
+
+                <div className='col-span-9'>
+                    <CharactersList characters={characters} />
+
+                </div>
 
                 {editCharacter && <EditCharacterForm character={editCharacter} />}
             </div>

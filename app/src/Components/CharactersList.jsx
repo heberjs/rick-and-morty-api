@@ -8,7 +8,7 @@ const CharactersList = ({ characters }) => {
     return <section className='flex flex-wrap justify-center'>
 
         {error ? (
-            <p className='text-white'>{error}</p>
+            <h2 className='text-white font-semibold text-3xl mt-28'>{error}</h2>
         ) : characters.map(character => <CharacterCard key={character.id} character={character} />)}
 
     </section>
