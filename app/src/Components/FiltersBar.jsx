@@ -2,6 +2,9 @@ import logic from '../../services'
 import { useEffect, useState } from 'react'
 import { useCharacters } from '../Hooks/useCharacters'
 import FilterButton from './Library/FilterButton'
+import { Link } from 'react-router-dom'
+import paths from '../Routers/paths/paths'
+
 
 
 
@@ -39,8 +42,18 @@ function FiltersBar() {
     return <>
 
 
-        <div className="text-white flex flex-col items-center gap-3">
-            <h2 className="font-extrabold text-2xl m-0">Filters</h2>
+        <section className="text-white flex flex-col items-center gap-3">
+
+            <Link>
+                <h2 className="font-extrabold text-3xl mt-4">Episodes</h2>
+            </Link>
+
+            <Link to={paths.locationList}>
+                <h2 className="font-extrabold text-3xl mt-4">Location</h2>
+            </Link>
+
+            <h2 className="font-extrabold text-3xl mt-4">Filters</h2>
+
             <div className="flex flex-col items-center rounded-lg bg-slate-500 p-2">
 
                 <h3 className="mb-4 font-semibold shadow p-1">Status</h3>
@@ -93,7 +106,7 @@ function FiltersBar() {
                 </div>
 
             </div>
-        </div>
+        </section>
 
     </>
 

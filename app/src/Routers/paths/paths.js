@@ -6,7 +6,8 @@ const paths = {
 
     app: "/",
     home: "/home",
-    characterDetails: "/rickandmorty/:id"
+    characterDetails: "/rickandmorty/:id",
+    locationList: "/location"
 }
 
 export default paths

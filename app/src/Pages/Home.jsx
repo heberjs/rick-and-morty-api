@@ -28,6 +28,8 @@ function Home() {
             <div className='grid grid-cols-10 gap-2 p-2'>
 
                 <div className='col-span-1'>
+
+
                     <FiltersBar />
 
                 </div>

@@ -4,6 +4,7 @@ import paths from "./paths/paths"
 import App from "../App"
 import Home from "../Pages/Home"
 import CharacterDetails from "../Pages/CharacterDetails"
+import LocationList from "../Pages/LocationList"
 import { createBrowserRouter, Navigate } from "react-router-dom"
 
 
@@ -25,6 +26,10 @@ const routes = [
             {
                 path: paths.characterDetails,
                 element: <CharacterDetails />
+            },
+            {
+                path: paths.locationList,
+                element: <LocationList />
             }
         ]
     }

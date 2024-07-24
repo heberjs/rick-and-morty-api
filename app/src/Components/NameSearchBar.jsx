@@ -42,7 +42,7 @@ const NameSearchBar = () => {
 
     return (
 
-        <div className="flex justify-center">
+        <div className="flex justify-center ml-20">
             <form className="flex gap-2 rounded">
                 <input
                     className="rounded p-2 border border-black font-semibold w-[400px]"
