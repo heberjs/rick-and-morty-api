@@ -18,29 +18,21 @@ function Home() {
 
     return (
 
-        <section className='bg-slate-900 flex justify-center flex-col p-2'>
+        <section className='bg-slate-900  border'>
 
             <Header />
 
             <NameSearchBar />
 
+            {/* grid grid-cols-10 gap-2 p-2 border */}
 
-            <div className='grid grid-cols-10 gap-2 p-2'>
+            <FiltersBar />
 
-                <div className='col-span-1'>
+            <CharactersList characters={characters} />
 
 
-                    <FiltersBar />
+            {editCharacter && <EditCharacterForm character={editCharacter} />}
 
-                </div>
-
-                <div className='col-span-9'>
-                    <CharactersList characters={characters} />
-
-                </div>
-
-                {editCharacter && <EditCharacterForm character={editCharacter} />}
-            </div>
             <NavPages />
 
             <TableCharacters />

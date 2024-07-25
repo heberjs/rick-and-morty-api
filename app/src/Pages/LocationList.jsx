@@ -66,31 +66,28 @@ const LocationList = () => {
 
     return (
 
-        <section className=" bg-slate-900 flex justify-center flex-col p-2">
+        <section className=" bg-slate-900 flex justify-center flex-col p-2 border border-red-700 min-h-screen">
 
             <Header />
 
-            <h2 className='text-white'>{currentLocation.name}</h2>
+            <h2 className='text-white font-semibold text-4xl text-center p-4 mb-2 border border-red-700'>Location: <span className='text-amber-200 text-4xl'>{currentLocation.name}</span></h2>
 
 
-            <div className='grid grid-cols-10 gap-2 p-2 text-white'>
+            <div className='gap-2 p-2 text-white flex'>
 
-                <div className='col-span-1'>
+                <div className='border'>
 
-
-                    <select className='text-black' name="locations" onChange={handleChange}>
-                        <option value="">Choose ...</option>
+                    <select className='font-bold text-slate-500 py-2 px-1 appearance-auto' name="locations" onChange={handleChange}>
+                        <option value="1">Choose ...</option>
                         {locationNames.map((location, id) => (
                             <option value={id + 1} key={id + 1}>{location}</option>
                         ))}
                     </select>
 
 
-
-
                 </div>
 
-                <div className='col-span-9'>
+                <div className='border-2'>
                     <CharactersList characters={residents} />
 
                 </div>

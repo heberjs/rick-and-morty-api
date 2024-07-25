@@ -1,9 +1,9 @@
 import logic from '../../services'
 import { useEffect, useState } from 'react'
 import { useCharacters } from '../Hooks/useCharacters'
-import FilterButton from './Library/FilterButton'
 import { Link } from 'react-router-dom'
 import paths from '../Routers/paths/paths'
+import FilterSection from './FilterSection'
 
 
 
@@ -15,8 +15,15 @@ function FiltersBar() {
     const [status, setStatus] = useState("")
     const [gender, setGender] = useState("")
     const [species, setSpecies] = useState("")
+    const [view, setView] = useState('Close')
 
     const { setCharacters } = useCharacters()
+
+    const POSIBLE_STATUS = ["Alive", "Dead", "Unknown"]
+
+    const POSIBLE_SPECIES = ['Human', 'Alien', 'Humanoid', 'Poopybutthole', 'Mythological', 'Unknown', 'Animal', 'Disease', 'Robot', 'Cronenberg', 'Planet']
+
+    const POSIBLE_GENDER = ['Male', 'Female', 'Genderless', 'Unknown']
 
     useEffect(() => {
 
@@ -36,13 +43,14 @@ function FiltersBar() {
 
     }, [status, gender, species])
 
-    const handleClick = (value, setValue) => setValue(prev => (prev === value ? "" : value))
+    const handleToggleView = () => {
 
+        setView(prevView => (prevView === 'close' ? 'open' : 'close'))
+    }
 
     return <>
-
-
-        <section className="text-white flex flex-col items-center gap-3">
+        {/* min-h-screen  */}
+        <aside className="text-white flex flex-col items-center gap-3 border ">
 
             <Link>
                 <h2 className="font-extrabold text-3xl mt-4">Episodes</h2>
@@ -52,61 +60,37 @@ function FiltersBar() {
                 <h2 className="font-extrabold text-3xl mt-4">Location</h2>
             </Link>
 
-            <h2 className="font-extrabold text-3xl mt-4">Filters</h2>
+            <h2 className="font-extrabold text-3xl mt-4 cursor-pointer" onClick={handleToggleView}>Filters</h2>
+            {view === 'open' && (
+                <>
+                    <FilterSection
+                        title={"Status"}
+                        options={POSIBLE_STATUS}
+                        selectedOption={status}
+                        setOption={setStatus}
 
-            <div className="flex flex-col items-center rounded-lg bg-slate-500 p-2">
+                    />
+                    <FilterSection
+                        title={"Species"}
+                        options={POSIBLE_SPECIES}
+                        selectedOption={species}
+                        setOption={setSpecies}
+                    />
 
-                <h3 className="mb-4 font-semibold shadow p-1">Status</h3>
-                <div className="flex flex-wrap gap-2">
-                    {["Alive", "Dead", "Unknown"].map((statusC) => (
-                        <FilterButton key={statusC}
-                            isActive={statusC === status}
-                            onClick={() => handleClick(statusC, setStatus)}
-                            label={statusC}
-                        />
+                    <FilterSection
+                        title={"Gender"}
+                        options={POSIBLE_GENDER}
+                        selectedOption={gender}
+                        setOption={setGender}
+                    />
 
-                    ))}
-                </div>
-            </div>
-            <div className="flex flex-col items-center rounded-lg bg-slate-500 p-2">
-                <h3 className="mb-4 font-semibold shadow p-1">Species</h3>
-                <div className="flex flex-wrap gap-2">
-                    {['Human', 'Alien', 'Humanoid', 'Poopybutthole', 'Mythological', 'Unknown', 'Animal', 'Disease', 'Robot', 'Cronenberg', 'Planet'].map((specie) => (
+                </>
 
-                        <FilterButton
-                            key={specie}
-                            isActive={specie === species}
-                            onClick={() => handleClick(specie, setSpecies)}
-                            label={specie}
+            )
 
-                        />
+            }
 
-                    )
-                    )}
-
-                </div>
-
-            </div>
-            <div className="flex flex-col items-center rounded-lg bg-slate-500 p-2">
-                <h3 className="mb-4 font-semibold shadow p-1">Gender</h3>
-                <div className="flex gap-2 flex-wrap">
-                    {['Male', 'Female', 'Genderless', 'Unknown'].map(genderC => {
-                        return (
-
-                            <FilterButton
-                                key={genderC}
-                                isActive={genderC === gender}
-                                onClick={() => handleClick(genderC, setGender)}
-                                label={genderC}
-
-                            />
-
-                        )
-                    })}
-                </div>
-
-            </div>
-        </section>
+        </aside>
 
     </>
 
