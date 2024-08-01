@@ -55,18 +55,18 @@ const NavPages = () => {
 
     return (
 
-        <div className='font-semibold - text-white flex gap-1 mb-8 justify-center items-center'>
+        <div className='font-semibold - text-white flex gap-1 my-4 justify-center items-center'>
             <div className='inline-block'>
                 <button onClick={handlePrevPage}
                     disabled={currentPage === 1}
-                    className='px-2 py-1 border rounded-l'
+                    className='px-4 py-2 border rounded-l'
                 >Prev</button>
 
                 {pages.map((page) => (
                     < button key={page}
                         onClick={() => handleOnPageSelected(page)}
                         disabled={page === currentPage}
-                        className={`px-2 py-1 border-y border-r ${page === currentPage ? 'bg-gray-600' : ''}`}
+                        className={`px-4 py-2 border-y border-r ${page === currentPage ? 'bg-gray-600' : ''}`}
                     >{page}</button>
                 ))
                 }
@@ -74,7 +74,7 @@ const NavPages = () => {
                 <button
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
-                    className='px-2 py-1 border rounded-r'
+                    className='px-4 py-2 border rounded-r'
                 >Next</button>
             </div>
         </div >

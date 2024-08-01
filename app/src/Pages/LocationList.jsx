@@ -1,7 +1,6 @@
 import logic from '../../services'
 import Header from "../Components/Header"
 import CharactersList from "../Components/CharactersList"
-import EditCharacterForm from '../Components/EditCharacterForm'
 import { useEffect, useState } from "react"
 import { useCharacters } from '../Hooks/useCharacters'
 
@@ -14,7 +13,6 @@ const LocationList = () => {
     const [residents, setResidents] = useState([])
     const [currentLocation, setCurrentLocation] = useState('')
 
-    const { editCharacter } = useCharacters()
 
     useEffect(() => {
 
@@ -66,16 +64,16 @@ const LocationList = () => {
 
     return (
 
-        <section className=" bg-slate-900 flex justify-center flex-col p-2 border border-red-700 min-h-screen">
+        <section className=" bg-slate-900 flex flex-col justify-center min-h-screen">
 
             <Header />
 
-            <h2 className='text-white font-semibold text-4xl text-center p-4 mb-2 border border-red-700'>Location: <span className='text-amber-200 text-4xl'>{currentLocation.name}</span></h2>
+            <h2 className='text-white font-semibold text-3xl text-center p-2'>Location: <span className='text-amber-200 text-3xl'>{currentLocation.name}</span></h2>
 
 
-            <div className='gap-2 p-2 text-white flex'>
+            <div className='flex flex-col  text-white'>
 
-                <div className='border'>
+                <div className='p-2'>
 
                     <select className='font-bold text-slate-500 py-2 px-1 appearance-auto' name="locations" onChange={handleChange}>
                         <option value="1">Choose ...</option>
@@ -87,12 +85,9 @@ const LocationList = () => {
 
                 </div>
 
-                <div className='border-2'>
-                    <CharactersList characters={residents} />
 
-                </div>
+                <CharactersList characters={residents} />
 
-                {editCharacter && <EditCharacterForm character={editCharacter} />}
             </div>
 
         </section >

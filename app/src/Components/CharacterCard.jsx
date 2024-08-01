@@ -9,23 +9,27 @@ function CharacterCard({ character }) {
 
 
 
-    const handleEditForm = () => {
+    // const handleEditForm = () => {
 
-        setEditCharacter(character)
-    }
+    //     setEditCharacter(character)
+    // }
 
-    return <article className="p-10 flex flex-col gap-2">
+    return <>
 
-        <h2 className='text-white font-semibold font-helvetica text-3xl  m-0'>{character.name}</h2>
-        <p className='text-white font-semibold font-helvetica'>{character.location.name}</p>
-        <p className='text-white font-semibold font-helvetica'>{character.status}</p>
         <Link to={`/rickandmorty/${character.id}`}>
-            <img className="rounded" src={character.image} alt="character image" />
-        </Link>
-        <button onClick={handleEditForm} className="text-white bg-slate-600 p-4 rounded">Edit</button>
+            <article className="p-1 border-2 border-slate-700 rounded-lg mt-2">
+                <h2 className='text-yellow-200 font-bold font-sans text-4xl p-1 text-center mb-2'>{character.name}</h2>
 
-    </article>
+                <img className="rounded-3xl w-full border-opacity-20 border-slate-950" src={character.image} alt="character image" />
 
+
+                <p className={`${character.status === 'Alive' ? 'text-green-500' : character.status === 'Dead' ? 'text-red-600' : character.status === 'unknown' ? 'text-gray-400' : 'text-white'} text-3xl font-bold font-helvetica p-1 text-center`}>{character.status}</p>
+                <p className='text-white font-semibold font-helvetica p-1 text-center text-2xl'>{character.location.name}</p>
+                {/* <button onClick={handleEditForm} className="text-white bg-slate-600 p-4 rounded">Edit</button> */}
+
+            </article>
+        </Link >
+    </>
 
 }
 

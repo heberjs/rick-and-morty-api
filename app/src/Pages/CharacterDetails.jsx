@@ -31,18 +31,18 @@ const CharacterDetails = () => {
 
     return (
 
-        <article className='flex flex-col p-2 bg-slate-900 min-h-screen text-white'>
+        <article className='bg-slate-900 min-h-screen text-white  flex flex-col'>
 
             <Header />
 
-            <div className='flex flex-col items-center ml-12'>
+            <div className='flex flex-col items-center mt-12 justify-center'>
 
-                <h2 className='font-extrabold text-4xl text-white text- mb-8'>{characterDetails.name}</h2>
+                <h2 className='text-yellow-200 font-bold text-4xl text- mb-8'>{characterDetails.name}</h2>
                 <div>
-                    <img className='rounded-full w-[300px]' src={characterDetails.image} alt={characterDetails.name} />
+                    <img className='rounded-3xl w-[350px]' src={characterDetails.image} alt={characterDetails.name} />
                 </div>
 
-                <div className='flex gap-2 my-2 mr-4 text-white text-3xl'>
+                <div className='flex gap-2 my-2 mr-4 text-3xl'>
                     <div className={`w-5 h-5 rounded-full ${characterDetails.status === 'Alive' ? 'bg-green-400' :
                         characterDetails.status === 'Dead' ? 'bg-red-700' :
                             'bg-gray-500'} mt-2.5`}></div>
@@ -52,7 +52,9 @@ const CharacterDetails = () => {
 
                 </div>
 
-                <div className='flex flex-col'>
+                <div className={`flex flex-col ${characterDetails.status === 'Alive' ? 'text-green-400' :
+                    characterDetails.status === 'Dead' ? 'text-red-700' :
+                        'text-gray-500'}`}>
 
                     <div className='flex gap-2'>
                         <h4 className='font-semibold text-xl text-yellow-400'>Specie:</h4>
@@ -66,7 +68,7 @@ const CharacterDetails = () => {
 
                     <div className='flex gap-2'>
                         <h4 className='font-semibold text-xl text-yellow-400'>Last known location:</h4>
-                        <p className='mt-1 text-white'>{characterDetails.location?.name}</p>
+                        <p className='mt-1'>{characterDetails.location?.name}</p>
                     </div>
 
                     <div className='flex gap-2'>
@@ -78,7 +80,8 @@ const CharacterDetails = () => {
                 </div>
 
             </div>
-        </article>
+
+        </article >
     )
 }
 

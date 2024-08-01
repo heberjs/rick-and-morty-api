@@ -49,18 +49,10 @@ function FiltersBar() {
     }
 
     return <>
-        {/* min-h-screen  */}
-        <aside className="text-white flex flex-col items-center gap-3 border ">
+        <aside className="text-white flex flex-col items-center p-2">
 
-            <Link>
-                <h2 className="font-extrabold text-3xl mt-4">Episodes</h2>
-            </Link>
 
-            <Link to={paths.locationList}>
-                <h2 className="font-extrabold text-3xl mt-4">Location</h2>
-            </Link>
-
-            <h2 className="font-extrabold text-3xl mt-4 cursor-pointer" onClick={handleToggleView}>Filters</h2>
+            < h2 className="font-extrabold text-2xl  cursor-pointer mb-2" onClick={handleToggleView}>Filters</h2>
             {view === 'open' && (
                 <>
                     <FilterSection
@@ -90,7 +82,7 @@ function FiltersBar() {
 
             }
 
-        </aside>
+        </aside >
 
     </>
 

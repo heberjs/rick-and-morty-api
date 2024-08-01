@@ -18,7 +18,7 @@ function Home() {
 
     return (
 
-        <section className='bg-slate-900  border'>
+        <section className='bg-slate-900 flex justify-center flex-col '>
 
             <Header />
 
@@ -31,11 +31,12 @@ function Home() {
             <CharactersList characters={characters} />
 
 
-            {editCharacter && <EditCharacterForm character={editCharacter} />}
+
+            {/* {editCharacter && <EditCharacterForm character={editCharacter} />} */}
 
             <NavPages />
 
-            <TableCharacters />
+            {/* <TableCharacters /> */}
 
 
         </section>
