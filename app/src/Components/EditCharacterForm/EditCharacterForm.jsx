@@ -1,4 +1,4 @@
-import { useCharacters } from "../Hooks/useCharacters"
+import { useCharacters } from "../../Hooks/useCharacters"
 
 function EditCharacterForm({ character }) {
 

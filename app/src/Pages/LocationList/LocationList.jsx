@@ -1,9 +1,7 @@
-import logic from '../../services'
-import Header from "../Components/Header"
-import CharactersList from "../Components/CharactersList"
+import logic from '../../../services'
+import Header from "../../Components/Header/Header"
+import CharactersList from "../../Components/CharacterList/CharactersList"
 import { useEffect, useState } from "react"
-import { useCharacters } from '../Hooks/useCharacters'
-
 
 
 const LocationList = () => {
@@ -71,11 +69,10 @@ const LocationList = () => {
             <h2 className='text-white font-semibold text-3xl text-center p-2'>Location: <span className='text-amber-200 text-3xl'>{currentLocation.name}</span></h2>
 
 
-            <div className='flex flex-col  text-white'>
+            <div className=' text-white'>
 
-                <div className='p-2'>
-
-                    <select className='font-bold text-slate-500 py-2 px-1 appearance-auto' name="locations" onChange={handleChange}>
+                <div className='p-2 text-sm flex justify-center'>
+                    <select className=' text-slate-500 py-1 px-1' name="locations" onChange={handleChange}>
                         <option value="1">Choose ...</option>
                         {locationNames.map((location, id) => (
                             <option value={id + 1} key={id + 1}>{location}</option>

@@ -1,4 +1,4 @@
-import { useNavPages } from '../Hooks/usePages'
+import { useNavPages } from '../../Hooks/usePages'
 
 
 
@@ -55,18 +55,18 @@ const NavPages = () => {
 
     return (
 
-        <div className='font-semibold - text-white flex gap-1 my-4 justify-center items-center'>
+        <div className='font-semibold - text-white flex gap-1 my-4 justify-center items-center p-2'>
             <div className='inline-block'>
                 <button onClick={handlePrevPage}
                     disabled={currentPage === 1}
-                    className='px-4 py-2 border rounded-l'
+                    className='px-4 py-2 md:text-2xl md:px-8 border rounded-l'
                 >Prev</button>
 
                 {pages.map((page) => (
                     < button key={page}
                         onClick={() => handleOnPageSelected(page)}
                         disabled={page === currentPage}
-                        className={`px-4 py-2 border-y border-r ${page === currentPage ? 'bg-gray-600' : ''}`}
+                        className={`px-4 py-2 border-y md:px-8 md:text-2xl border-r ${page === currentPage ? 'bg-gray-600' : ''}`}
                     >{page}</button>
                 ))
                 }
@@ -74,7 +74,7 @@ const NavPages = () => {
                 <button
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
-                    className='px-4 py-2 border rounded-r'
+                    className='px-4 py-2 md:text-2xl border md:px-8 rounded-r'
                 >Next</button>
             </div>
         </div >

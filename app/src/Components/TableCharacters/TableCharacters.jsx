@@ -1,4 +1,4 @@
-import {useCharacters} from "../Hooks/useCharacters"
+import { useCharacters } from "../../Hooks/useCharacters"
 
 function TableCharacters() {
 
@@ -7,7 +7,7 @@ function TableCharacters() {
   const firstTenCharacters = characters.slice(0, 10)
 
 
-   return (
+  return (
     <section className='flex flex-col justify-center border-2 rounded-lg shadow-lg bg-gray-800 text-white'>
       <h2 className='text-xl font-semibold py-2 text-center'>Rick and Morty Characters</h2>
       <table className='border-collapse w-full'>
