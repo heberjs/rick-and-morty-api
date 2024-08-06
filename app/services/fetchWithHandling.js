@@ -2,8 +2,6 @@ import errors from "../Errors/errors"
 
 const { SystemError, ClientError, ServerError } = errors
 
-const apiUrl = process.env.VITE_API_URL
-
 
 const fetchWithHandling = async (url) => {
 

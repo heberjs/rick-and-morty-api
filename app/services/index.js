@@ -1,9 +1,11 @@
 import retrieveCharacter from './retrieveCharacter'
 import retrieveCharacters from './retrieveCharacters'
 import filterCharactersBy from './filterCharactersBy'
-import retrieveLocations from './retrieveLocations'
 import retrieveCharsLocation from './retrieveCharsLocation'
 import fetchWithHandling from './fetchWithHandling'
+import retrieveLocations from './retrieveLocations'
+import fetchEpisodes from './fetchEpisodes'
+import retrieveCharsEpisode from './retrieveCharsEpisode'
 
 
 const logic = {
@@ -11,8 +13,10 @@ const logic = {
     retrieveCharacters,
     retrieveCharacter,
     filterCharactersBy,
-    retrieveLocations: retrieveLocations,
-    retrieveCharsLocation
+    retrieveLocations,
+    retrieveCharsLocation,
+    fetchEpisodes,
+    retrieveCharsEpisode
 }
 
 export default logic
