@@ -13,8 +13,8 @@ const retrieveCharsLocation = async (locationId) => {
 
         const dataLocation = await fetchWithHandling(locationUrl)
 
-        const residentsPromises = dataLocation.residents.map(url => fetchWithHandling(url))
-        const residents = await Promise.all(residentsPromises)
+        const residentsPromise = dataLocation.residents.map(url => fetchWithHandling(url))
+        const residents = await Promise.all(residentsPromise)
 
         return {
             location: dataLocation,
