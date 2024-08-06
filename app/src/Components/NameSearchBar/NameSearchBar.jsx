@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import logic from "../../services"
-import { useCharacters } from "../Hooks/useCharacters"
+import logic from "../../../services"
+import { useCharacters } from "../../Hooks/useCharacters"
 
 const NameSearchBar = () => {
 
@@ -42,17 +42,17 @@ const NameSearchBar = () => {
 
     return (
 
-        <div className="justify-center p-1 mt-2">
+        <div className="justify-center p-1 mt-8">
             <form className="flex gap-2 rounded justify-center">
                 <input
-                    className="rounded p-1 border border-black font-semibold w-[200px]"
+                    className="rounded px-1 py-2 border border-black font-semibold w-[200px] md:w-[300px]"
                     id="search"
                     type="text"
                     placeholder="Search for Characters"
                     onChange={handleNameSearch}
 
                 />
-                <button type="submit" className="text-white px-1  rounded bg-slate-500 font-medium">
+                <button type="submit" className="text-white px-2  rounded bg-slate-500 font-medium">
                     <p className="text-lg">Search</p>
 
                 </button>

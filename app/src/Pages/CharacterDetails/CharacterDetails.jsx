@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import logic from '../../services'
-import Header from '../Components/Header'
+import logic from '../../../services'
+import Header from '../../Components/Header/Header'
 
 const CharacterDetails = () => {
 
@@ -37,9 +37,9 @@ const CharacterDetails = () => {
 
             <div className='flex flex-col items-center mt-12 justify-center'>
 
-                <h2 className='text-yellow-200 font-bold text-4xl text- mb-8'>{characterDetails.name}</h2>
+                <h2 className='text-yellow-200 font-bold text-4xl text- mb-8 sm:text-7xl'>{characterDetails.name}</h2>
                 <div>
-                    <img className='rounded-3xl w-[350px]' src={characterDetails.image} alt={characterDetails.name} />
+                    <img className='sm:w-[500px] rounded-full' src={characterDetails.image} alt={characterDetails.name} />
                 </div>
 
                 <div className='flex gap-2 my-2 mr-4 text-3xl'>

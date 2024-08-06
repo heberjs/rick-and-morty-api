@@ -1,9 +1,7 @@
-import logic from '../../services'
+import logic from '../../../services'
 import { useEffect, useState } from 'react'
-import { useCharacters } from '../Hooks/useCharacters'
-import { Link } from 'react-router-dom'
-import paths from '../Routers/paths/paths'
-import FilterSection from './FilterSection'
+import { useCharacters } from '../../Hooks/useCharacters'
+import FilterSection from '../FilterSection/FilterSection'
 
 
 
@@ -15,7 +13,7 @@ function FiltersBar() {
     const [status, setStatus] = useState("")
     const [gender, setGender] = useState("")
     const [species, setSpecies] = useState("")
-    const [view, setView] = useState('Close')
+    const [view, setView] = useState('open')
 
     const { setCharacters } = useCharacters()
 
@@ -48,11 +46,10 @@ function FiltersBar() {
         setView(prevView => (prevView === 'close' ? 'open' : 'close'))
     }
 
-    return <>
-        <aside className="text-white flex flex-col items-center p-2">
+    return (
+        <div className="text-white flex flex-col items-center p-2">
 
-
-            < h2 className="font-extrabold text-2xl  cursor-pointer mb-2" onClick={handleToggleView}>Filters</h2>
+            < h2 className="font-extrabold text-2xl lg:text-4xl cursor-pointer mb-2" onClick={handleToggleView}>Filters</h2>
             {view === 'open' && (
                 <>
                     <FilterSection
@@ -82,9 +79,9 @@ function FiltersBar() {
 
             }
 
-        </aside >
+        </div >
+    )
 
-    </>
 
 }
 

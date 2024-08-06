@@ -2,9 +2,10 @@
 
 import paths from "./paths/paths"
 import App from "../App"
-import Home from "../Pages/Home"
-import CharacterDetails from "../Pages/CharacterDetails"
-import LocationList from "../Pages/LocationList"
+import Home from "../Pages/Home/Home"
+import CharacterDetails from "../Pages/CharacterDetails/CharacterDetails"
+import LocationList from "../Pages/LocationList/LocationList"
+import EpisodesList from "../Pages/EpisodeList/EpisodeList"
 import { createBrowserRouter, Navigate } from "react-router-dom"
 
 
@@ -30,6 +31,10 @@ const routes = [
             {
                 path: paths.locationList,
                 element: <LocationList />
+            },
+            {
+                path: paths.episodeList,
+                element: <EpisodesList />
             }
         ]
     }
