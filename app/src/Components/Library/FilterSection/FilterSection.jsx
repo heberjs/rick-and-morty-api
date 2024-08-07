@@ -12,7 +12,7 @@ const FilterSection = ({ title, options, selectedOption, setOption }) => {
         <>
 
             <h3
-                className=" w-24 text-center font-bold shadow border-b-slate-950 bg-slate-600 py-1 rounded cursor-pointer my-2 lg:w-full"
+                className="text-xl text-center font-bold shadow border-b-slate-950 bg-slate-600 py-1 rounded cursor-pointer my-2 w-full md:w-[350px]"
                 onClick={() => setFilterView(prevView => (prevView === 'close' ? 'open' : 'close'))}
             >
                 {title}
@@ -22,9 +22,9 @@ const FilterSection = ({ title, options, selectedOption, setOption }) => {
             {
                 filterView === 'open' && (
                     <>
-                        <div className="items-center rounded-lg bg-slate-500 p-2">
+                        <div className="items-center rounded-lg bg-slate-500 p-2 w-full md:w-[350px]">
                             <div
-                                className="flex flex-wrap gap-10 items-center">
+                                className="flex flex-wrap gap-4 justify-evenly items-center">
                                 {options.map((option) => (
                                     <FilterButton
                                         key={option}

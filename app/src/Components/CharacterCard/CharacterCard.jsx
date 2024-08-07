@@ -5,11 +5,10 @@ import { Link } from "react-router-dom"
 function CharacterCard({ character }) {
 
 
-
     return <>
 
         <Link to={`/rickandmorty/${character.id}`}>
-            <div className=" flex flex-col items-center justify-center p-2 border-4 border-slate-700 rounded-lg mt-2 lg:w-[300px] md:w-[250px] ml-1">
+            <div className=" flex flex-col items-center justify-center p-2 border-4 border-slate-700 rounded-lg mt-2 lg:w-[300px] md:w-[250px] ml-2">
                 <h2 className='text-yellow-200 font-bold font-sans text-2xl p-1 text-center mb-2'>{character.name}</h2>
 
                 <img className="rounded-3xl w-full lg:w-[300px] border-opacity-20 border-cyan-950" src={character.image} alt="character image" />

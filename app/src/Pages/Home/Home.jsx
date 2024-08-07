@@ -20,10 +20,12 @@ function Home() {
 
             <Header />
 
+            <h1 className='text-white font-semibold text-3xl md:text-5xl text-center p-8'>Characters</h1>
+
             <NameSearchBar />
 
-            <div className='lg:flex lg:flex-row p-4 gap-4'>
-                <aside className='lg:w-1/5'>
+            <div className='lg:flex lg:flex-row p-1 gap-4'>
+                <aside className='lg:w-1/5 '>
                     <FiltersBar />
                 </aside>
                 <section className='lg:w-5/6'>

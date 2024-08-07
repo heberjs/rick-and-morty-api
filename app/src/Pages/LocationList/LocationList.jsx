@@ -66,7 +66,7 @@ const LocationList = () => {
 
             <Header />
 
-            <h2 className='text-white font-semibold text-3xl text-center p-2'>Location: <span className='text-amber-200 text-3xl'>{currentLocation.name}</span></h2>
+            <h1 className='text-white font-semibold text-3xl md:text-5xl text-center p-2'>Location: <span className='text-amber-200 text-3xl'>{currentLocation.name}</span></h1>
 
 
             <div className=' text-white'>
