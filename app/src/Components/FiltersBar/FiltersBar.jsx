@@ -49,7 +49,7 @@ function FiltersBar() {
     return (
         <div className="text-white flex flex-col items-center lg:ml-8 md:mt-2">
 
-            < h2 className={`font-extrabold text-2xl lg:text-4xl cursor-pointer mb-2 bg-slate-600 text-center rounded flex items-center justify-between px-2 py-2 w-full md:w-[350px]`} onClick={handleToggleView}>Filters <span><img className='w-8' src={view === 'open' ? '/public/chevron-up.png' : '/public/chevron-down.png'} alt={view === 'open' ? 'arrow-up' : 'arrow-down'} /></span></h2>
+            < h2 className={`font-extrabold text-2xl lg:text-4xl cursor-pointer mb-2 bg-slate-600 text-center rounded flex items-center justify-between px-2 py-2 w-full md:w-[350px]`} onClick={handleToggleView}>Filters <span><img className='w-8' src={view === 'open' ? '/chevron-up.png' : '/chevron-down.png'} alt={view === 'open' ? 'arrow-up' : 'arrow-down'} /></span></h2>
             {view === 'close' && (
                 <>
                     <FilterSection
