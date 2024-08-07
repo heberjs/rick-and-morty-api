@@ -70,7 +70,7 @@ const EpisodesList = () => {
         <section className="bg-slate-900 justify-center min-h-screen">
             <Header />
             <div className="p-2 flex flex-col items-center text-white md:gap-4">
-                <h2 className="text-white font-semibold text-3xl md:text-5xl">Episode: <span className="text-yellow-200">{selectedEpisodeName}</span></h2>
+                <h1 className="text-white font-semibold text-3xl md:text-5xl">Episode: <span className="text-amber-200 text-3xl">{selectedEpisodeName}</span></h1>
 
                 <h3 className="text-white md:text-xl">Air date: <span className="text-yellow-200">{airDateEpisode}</span></h3>
 

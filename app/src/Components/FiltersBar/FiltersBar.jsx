@@ -1,7 +1,7 @@
 import logic from '../../../services'
 import { useEffect, useState } from 'react'
 import { useCharacters } from '../../Hooks/useCharacters'
-import FilterSection from '../FilterSection/FilterSection'
+import FilterSection from '../Library/FilterSection/FilterSection'
 
 
 
@@ -47,10 +47,10 @@ function FiltersBar() {
     }
 
     return (
-        <div className="text-white flex flex-col items-center p-2">
+        <div className="text-white flex flex-col items-center lg:ml-8 md:mt-2">
 
-            < h2 className="font-extrabold text-2xl lg:text-4xl cursor-pointer mb-2" onClick={handleToggleView}>Filters</h2>
-            {view === 'open' && (
+            < h2 className={`font-extrabold text-2xl lg:text-4xl cursor-pointer mb-2 bg-slate-600 text-center rounded flex items-center justify-between px-2 py-2 w-full md:w-[350px]`} onClick={handleToggleView}>Filters <span><img className='w-8' src={view === 'open' ? '/public/chevron-up.png' : '/public/chevron-down.png'} alt={view === 'open' ? 'arrow-up' : 'arrow-down'} /></span></h2>
+            {view === 'close' && (
                 <>
                     <FilterSection
                         title={"Status"}

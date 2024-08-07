@@ -42,10 +42,10 @@ const NameSearchBar = () => {
 
     return (
 
-        <div className="justify-center p-1 mt-8">
+        <div className="justify-center p-1">
             <form className="flex gap-2 rounded justify-center">
                 <input
-                    className="rounded px-1 py-2 border border-black font-semibold w-[200px] md:w-[300px]"
+                    className="rounded px-1 py-2 border border-black font-semibold w-full md:w-[300px]"
                     id="search"
                     type="text"
                     placeholder="Search for Characters"
