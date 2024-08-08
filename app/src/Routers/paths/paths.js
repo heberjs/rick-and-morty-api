@@ -1,7 +1,3 @@
-import EpisodesList from "../../Pages/EpisodeList/EpisodeList"
-
-
-
 
 const paths = {
 
