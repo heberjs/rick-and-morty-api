@@ -3,6 +3,7 @@ import CharactersList from "../../Components/CharacterList/CharactersList"
 import Header from "../../Components/Header/Header"
 import fetchEpisodes from "../../../services/fetchEpisodes"
 import retrieveCharsEpisode from "../../../services/retrieveCharsEpisode"
+import DropDownSelect from "../../Components/Library/DropDownSelect/DropDownSelect"
 
 
 const EpisodesList = () => {
@@ -66,6 +67,7 @@ const EpisodesList = () => {
     }
 
 
+
     return (
         <section className="bg-slate-900 justify-center min-h-screen">
             <Header />
@@ -75,28 +77,49 @@ const EpisodesList = () => {
                 <h3 className="text-white md:text-xl">Air date: <span className="text-yellow-200">{airDateEpisode}</span></h3>
 
             </div>
-            <div>
-                <div className="p-2 text-sm flex justify-center">
-                    <select className='font-semibold text-slate-500 py-1 px-1'
-                        name="episodes"
-                        onChange={handleChange}
-                        value={selectedEpisode}>
 
-                        <option value="1">Choose..</option>
+            <DropDownSelect options={episodeNames} selectedValue={selectedEpisode} onChange={handleChange} />
 
-                        {episodeNames.map((episode, index) => (
-                            <option value={index + 1} key={index + 1}>Ep: {index + 1} - {episode}</option>
-                        ))}
-                    </select>
-                </div>
-
-            </div>
-            <CharactersList characters={charactersEpisode} />
+            < CharactersList characters={charactersEpisode} />
 
 
-        </section>
+        </section >
 
     )
 }
 
 export default EpisodesList
+
+
+
+
+
+
+{/* <div>
+                <button
+                    onClick={toggleDropDown}
+                    className='font-semibold text-slate-500 py-1 px-1 bg-gray-700 rounded w-[200px]'>
+                    {isOpen ? `${selectedEpisodeName}` : `${selectedEpisodeName}`}
+                </button>
+
+                {isOpen && (
+
+                    <ul
+                        className="absolute bg-gray-700 text-white mt-2 rounded shadow-lg"
+                        aria
+                    >
+                        {episodeNames.map((episode, index) => (
+
+                            <li className="cursor-pointer text-sm px-1"
+                                value={index + 1}
+                                key={index}
+                                onClick={handleChange}
+                            >{`Ep: ${index + 1} - ${episode}`}
+                            </li>
+                        ))}
+                    </ul>
+
+                )}
+
+
+            </div> */}
