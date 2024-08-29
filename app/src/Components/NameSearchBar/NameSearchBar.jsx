@@ -1,36 +1,57 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import logic from "../../../services"
 import { useCharacters } from "../../Hooks/useCharacters"
+import debounce from "../../../utils/debunce"
+import errors from "../../../Errors/errors"
+
+const { NotFoundError } = errors
 
 const NameSearchBar = () => {
 
 
-    const { setCharacters, setError } = useCharacters()
+    const { characters, setCharacters, setError } = useCharacters()
     const [name, setName] = useState("")
 
 
-    useEffect(() => {
 
-        const fetchFilterCharacters = async () => {
+    //memorizar la fn debounce para evitar recrearla en cada render
+    const fetchCharacters = useCallback(
 
-            if (name) {
+        debounce(async (searchName) => {
+            try {
+                const data = await logic.filterCharactersBy({ name: searchName })
 
-                try {
-                    const data = await logic.filterCharactersBy({ name })
+                if (data?.results) {
                     setCharacters(data.results)
                     setError("")
-
-                } catch (error) {
-                    setError('Character Not Found')
-                    console.error(error)
-
+                } else {
+                    throw new NotFoundError(errors.message)
                 }
+            } catch (error) {
+                setError('Character Not Found')
+                console.error(error)
+
             }
+        }, 2000),
+        [setCharacters, setError])
+
+
+
+    useEffect(() => {
+        if (name.trim()) {
+
+            fetchCharacters(name)
+        } else {
+
+
         }
 
-        fetchFilterCharacters()
+        return () => {
+            fetchCharacters.cancel() //limpiar el timeOut si el compo se desmonta o el nombre cambia antes del debounce
+        }
+    }, [name, fetchCharacters])
 
-    }, [name, setCharacters])
+
 
     const handleNameSearch = (event) => {
 
@@ -39,13 +60,12 @@ const NameSearchBar = () => {
 
 
 
-
     return (
 
         <div className="justify-center p-1">
             <form className="flex gap-2 rounded justify-center">
                 <input
-                    className="rounded px-1 py-2 border border-black font-semibold w-full md:w-[300px]"
+                    className="rounded px-1 py-1 border border-black font-semibold w-full md:w-[300px]"
                     id="search"
                     type="text"
                     placeholder="Search for Characters"
@@ -53,7 +73,7 @@ const NameSearchBar = () => {
 
                 />
                 <button type="submit" className="text-white px-2  rounded bg-slate-500 font-medium">
-                    <p className="text-lg">Search</p>
+                    <p className="text-lg">Clear</p>
 
                 </button>
             </form>
