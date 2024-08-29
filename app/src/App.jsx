@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import { EditCharacterProvider } from './Hooks/useCharacters'
+import { CharacterProvider } from './Hooks/useCharacters'
 import { PagesProvider } from './Hooks/usePages'
 
 function App() {
@@ -8,11 +8,11 @@ function App() {
   return (
     <>
       <PagesProvider>
-        <EditCharacterProvider>
+        <CharacterProvider>
           <main>
             <Outlet />
           </main>
-        </EditCharacterProvider>
+        </CharacterProvider>
       </PagesProvider>
 
 

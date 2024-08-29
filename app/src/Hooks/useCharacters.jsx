@@ -7,7 +7,7 @@ const EditContext = createContext(null)
 export const useCharacters = () => useContext(EditContext)
 
 
-export const EditCharacterProvider = ({ children }) => {
+export const CharacterProvider = ({ children }) => {
 
 
     const [editCharacter, setEditCharacter] = useState(null)

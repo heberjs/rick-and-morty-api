@@ -20,7 +20,7 @@ function Home() {
 
             <Header />
 
-            <h1 className='text-white font-semibold text-3xl md:text-5xl text-center p-8'>Characters</h1>
+            <h1 className='text-white font-semibold text-3xl md:text-5xl text-center p-4'>Characters</h1>
 
             <NameSearchBar />
 
@@ -32,10 +32,6 @@ function Home() {
                     <CharactersList characters={characters} />
                 </section>
             </div>
-
-
-
-
 
             <NavPages />
 
