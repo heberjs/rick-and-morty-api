@@ -2,6 +2,8 @@ import logic from '../../../services'
 import Header from "../../Components/Header/Header"
 import CharactersList from "../../Components/CharacterList/CharactersList"
 import { useEffect, useState } from "react"
+import DropDownSelect from '../../Components/Library/DropDownSelect/DropDownSelect'
+import NavPages from '../../Components/NavPages/NavPages'
 
 
 const LocationList = () => {
@@ -71,24 +73,17 @@ const LocationList = () => {
 
             <div className=' text-white'>
 
-                <div className='p-2 text-sm flex justify-center'>
-                    <select className=' text-slate-500 py-1 px-1' name="locations" onChange={handleChange}>
-                        <option value="1">Choose ...</option>
-                        {locationNames.map((location, id) => (
-                            <option value={id + 1} key={id + 1}>{location}</option>
-                        ))}
-                    </select>
-
-
-                </div>
+                <DropDownSelect options={locationNames} selectedValue={selectedLocation} onChange={handleChange} />
 
 
                 <CharactersList characters={residents} />
 
             </div>
 
-        </section >
+            <NavPages />
 
+
+        </section >
 
     )
 }
