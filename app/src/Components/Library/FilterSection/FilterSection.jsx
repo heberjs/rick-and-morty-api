@@ -1,5 +1,5 @@
 import { useState } from "react"
-import FilterButton from "../FilterButton"
+import FilterButton from "../FilterButton/FilterButton"
 
 
 
