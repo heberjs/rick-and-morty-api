@@ -80,8 +80,6 @@ const LocationList = () => {
 
             </div>
 
-            <NavPages />
-
 
         </section >
 
