@@ -1,71 +1,21 @@
-import { useEffect, useState } from "react"
 import CharactersList from "../../Components/CharacterList/CharactersList"
 import Header from "../../Components/Header/Header"
-import fetchEpisodes from "../../../services/fetchEpisodes"
-import retrieveCharsEpisode from "../../../services/retrieveCharsEpisode"
+
 import DropDownSelect from "../../Components/Library/DropDownSelect/DropDownSelect"
+import useEpisodes from "../../Hooks/useEpisodes"
 
 
 const EpisodesList = () => {
 
-    const [episodeNames, setEpisodeNames] = useState([])
 
-    const [selectedEpisode, setSelectedEpisode] = useState("1")
-
-    const [selectedEpisodeName, setSelectedEpisodeName] = useState("Pilot")
-
-    const [charactersEpisode, setCharacterEpisode] = useState([])
-
-    const [airDateEpisode, setairDateEpisode] = useState([])
-
-
-
-    useEffect(() => {
-
-        const fetchEpisodeNames = async () => {
-
-            try {
-                const allEpisodeNames = await fetchEpisodes()
-                setEpisodeNames(allEpisodeNames)
-            } catch (error) {
-
-                console.error(error, error.message)
-
-            }
-        }
-
-        fetchEpisodeNames()
-
-    }, [])
-
-    useEffect(() => {
-        const fetchSelectedChar = async () => {
-
-            try {
-                const { charsEpisode, dataEpisode } = await retrieveCharsEpisode(selectedEpisode)
-
-                setCharacterEpisode(charsEpisode)
-                setairDateEpisode(dataEpisode)
-
-            } catch (error) {
-
-                console.error(error, error.message)
-
-            }
-        }
-
-        fetchSelectedChar()
-
-    }, [selectedEpisode])
-
-    const handleChange = (e) => {
-
-        const episodeSelectedIndex = e.target.value
-
-        setSelectedEpisode(episodeSelectedIndex)
-        setSelectedEpisodeName(episodeNames[episodeSelectedIndex - 1])
-    }
-
+    const {
+        episodeNames,
+        selectedEpisode,
+        selectedEpisodeName,
+        charactersEpisode,
+        airDateEpisode,
+        handleChange
+    } = useEpisodes()
 
 
     return (

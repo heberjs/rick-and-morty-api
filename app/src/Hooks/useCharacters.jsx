@@ -10,14 +10,13 @@ export const useCharacters = () => useContext(EditContext)
 export const CharacterProvider = ({ children }) => {
 
 
-    const [editCharacter, setEditCharacter] = useState(null)
     const [characters, setCharacters] = useState([])
     const [error, setError] = useState("")
 
 
 
     return (
-        <EditContext.Provider value={{ editCharacter, setEditCharacter, characters, setCharacters, error, setError }}>
+        <EditContext.Provider value={{ characters, setCharacters, error, setError }}>
             {children}
         </EditContext.Provider>
     )
