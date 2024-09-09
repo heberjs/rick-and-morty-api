@@ -1,64 +1,20 @@
-import logic from '../../../services'
 import Header from "../../Components/Header/Header"
 import CharactersList from "../../Components/CharacterList/CharactersList"
-import { useEffect, useState } from "react"
 import DropDownSelect from '../../Components/Library/DropDownSelect/DropDownSelect'
-import NavPages from '../../Components/NavPages/NavPages'
+import useLocationList from "../../Hooks/useLocationList"
 
 
 const LocationList = () => {
 
-    const [locationNames, setLocationNames] = useState([])
-    const [selectedLocation, setSelectedLocation] = useState(1)
-    const [residents, setResidents] = useState([])
-    const [currentLocation, setCurrentLocation] = useState('')
+    const {
+        locationNames,
+        selectedLocation,
+        residents,
+        currentLocation,
+        handleChange
 
+    } = useLocationList()
 
-    useEffect(() => {
-
-        const fetchLocationsNames = async () => {
-
-            try {
-                const allLocationNames = await logic.retrieveLocations()
-                setLocationNames(allLocationNames)
-
-            } catch (error) {
-                console.error(error, error.message)
-
-            }
-        }
-
-        fetchLocationsNames()
-
-
-
-    }, [])
-
-
-
-    useEffect(() => {
-        const fetchResidents = async () => {
-
-            try {
-                const { residents, location } = await logic.retrieveCharsLocation(selectedLocation)
-                setResidents(residents)
-                setCurrentLocation(location)
-            } catch (error) {
-
-                console.error(error, error.message)
-
-            }
-        }
-
-        fetchResidents()
-    }, [selectedLocation])
-
-
-    const handleChange = (e) => {
-
-        const locationName = e.target.value
-        setSelectedLocation(locationName)
-    }
 
 
 
